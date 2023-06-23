@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import {createApp} from 'vue';
 import {
   Chart,
   Title,
@@ -238,12 +237,6 @@ const sfc = {
   },
 };
 
-export function initRepoContributorsChart() {
-  const el = document.getElementById('repo-contributors-chart');
-  if (el) {
-    createApp(sfc).mount(el);
-  }
-}
 
 export default sfc; // activate the IDE's Vue plugin
 </script>
