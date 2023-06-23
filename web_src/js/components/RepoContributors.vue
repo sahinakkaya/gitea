@@ -46,39 +46,11 @@
 </template>
 
 <script>
-import {createApp} from 'vue';
-import {
-  Chart,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  TimeScale,
-  PointElement,
-  LineElement,
-  Filler,
-} from 'chart.js';
-import zoomPlugin from 'chartjs-plugin-zoom';
-import {Line} from 'vue-chartjs';
+const {Line} = await import('vue-chartjs');
 import 'chartjs-adapter-dayjs-4/dist/chartjs-adapter-dayjs-4.esm';
 
 const {pageData} = window.config;
 
-Chart.register(
-  TimeScale,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  PointElement,
-  LineElement,
-  Filler,
-  zoomPlugin
-);
 
 const sfc = {
   components: {Line},
@@ -238,9 +210,39 @@ const sfc = {
   },
 };
 
-export function initRepoContributorsChart() {
+export async function initRepoContributorsChart() {
   const el = document.getElementById('repo-contributors-chart');
   if (el) {
+    const {createApp} = await import('vue');
+    const {
+      Chart,
+      Title,
+      Tooltip,
+      Legend,
+      BarElement,
+      CategoryScale,
+      LinearScale,
+      TimeScale,
+      PointElement,
+      LineElement,
+      Filler,
+    } = await import('chart.js');
+    const zoomPlugin = await import('chartjs-plugin-zoom');
+
+
+    Chart.register(
+      TimeScale,
+      CategoryScale,
+      LinearScale,
+      BarElement,
+      Title,
+      Tooltip,
+      Legend,
+      PointElement,
+      LineElement,
+      Filler,
+      zoomPlugin
+    );
     createApp(sfc).mount(el);
   }
 }
