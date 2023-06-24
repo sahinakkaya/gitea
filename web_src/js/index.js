@@ -2,7 +2,7 @@
 import './bootstrap.js';
 
 import {initRepoActivityTopAuthorsChart} from './components/RepoActivityTopAuthors.vue';
-import {initRepoContributorsChart} from './components/RepoContributors.vue';
+import {initRepoContributorsChart} from './components/InitRepoContributors.js';
 import {initScopedAccessTokenCategories} from './components/ScopedAccessTokenSelector.vue';
 import {initDashboardRepoList} from './components/DashboardRepoList.vue';
 
