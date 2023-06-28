@@ -20,8 +20,8 @@ const (
 // Activity render the page to show repository latest changes
 func Activity(ctx *context.Context) {
 	ctx.Data["Title"] = ctx.Tr("repo.activity")
-	ctx.Data["PageIsActivity"] = true
 
+	ctx.Data["PageIsActivity"] = true
 	ctx.Data["PageIsPulse"] = true
 	ctx.Data["PageIsContributors"] = false
 

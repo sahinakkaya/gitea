@@ -272,6 +272,7 @@ export default {
           },
           y: {
             min: 0,
+            max: this.maxMainGraph(),
           },
         },
       };
